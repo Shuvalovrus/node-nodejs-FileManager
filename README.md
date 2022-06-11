@@ -12,7 +12,7 @@ The file manager can do the following:
 ```bash
 npm run start -- --username=your_username
 ```
-###List of operations and their syntax:
+### List of operations and their syntax:
 - Navigation & working directory (nwd)
     - Go upper from current directory 
     ```bash
