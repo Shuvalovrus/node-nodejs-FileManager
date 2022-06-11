@@ -17,12 +17,12 @@ const homeDirectory = process.env["HOME"];
 const userName = getUserName();
 const readLineInterface = readline.createInterface({ input: stdin, output: stdout });
 
-const printCurrentDir = () => process.stdout.write(`You are currently in ${cwd()}\n`);
+const printCurrentDir = () => process.stdout.write(`You are currently in \x1b[33m${cwd()}\n\x1b[0m`);
 
 (function sayHi () {
     process.chdir(homeDirectory);
-    stdout.write(`Welcome to the File Manager, ${userName}!\n`);
-    stdout.write(`You are currently in ${cwd()}\n`);
+    stdout.write(`Welcome to the File Manager, \x1b[35m${userName}!\n\x1b[0m`);
+    printCurrentDir();
 })();
 
 
