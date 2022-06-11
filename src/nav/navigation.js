@@ -1,5 +1,6 @@
 import { join } from 'path';
 import { readdir } from 'fs/promises';
+import { isAbsolute } from 'path';
 
 export const goUpDirectory = async () => {
 
@@ -13,7 +14,8 @@ export const goUpDirectory = async () => {
 
 export const goToDirectory = async (path) => {
     try {
-       await process.chdir(join(process.cwd(), path))
+        if (!isAbsolute(path)) path = join(process.cwd(), path);
+        await process.chdir(path)
     } catch (err) {
         console.error('Operation failed');
     }
