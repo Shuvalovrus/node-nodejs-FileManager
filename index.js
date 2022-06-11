@@ -10,6 +10,7 @@ import { osCommandHandler } from "./src/os/os.js";
 import { calcHash } from "./src/hash/calcHash.js";
 import { compressFile } from "./src/zip/compress.js";
 import { decompressFile } from "./src/zip/decompress.js";
+import { deleteFile } from "./src/files/deleteFile.js";
 
 const { stdin, stdout, cwd } = process;
 const homeDirectory = process.env["HOME"];
@@ -65,6 +66,10 @@ readLineInterface.on('line', async (line) => {
             break;
         case 'mv' :
             await moveFile(pathFile, pathDestination);
+            printCurrentDir();
+            break;
+        case 'rm' :
+            await deleteFile(pathFile);
             printCurrentDir();
             break;
         case 'os' :
