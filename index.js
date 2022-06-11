@@ -37,55 +37,58 @@ readLineInterface.on('line', async (line) => {
     switch (command) {
         case 'up' :
             await goUpDirectory();
-            printCurrentDir()
+            printCurrentDir();
            break;
         case 'cd' :
             await goToDirectory(pathFile);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'ls' :
             await getListDirectory();
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'cat' :
             await readFile(pathFile);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'add' :
             await createFile(pathFile);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'rn' :
             await renameFile(pathFile, fileName);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'cp' :
             await copyFile(pathFile, pathDestination);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'mv' :
             await moveFile(pathFile, pathDestination);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'os' :
             await osCommandHandler(pathFile);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'hash' :
             await calcHash(pathFile);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'compress' :
             await compressFile(pathFile, pathDestination);
-            printCurrentDir()
+            printCurrentDir();
             break;
         case 'decompress' :
             await decompressFile(pathFile, pathDestination);
-            printCurrentDir()
+            printCurrentDir();
+            break;
+        case '.exit' :
+            process.exit();
             break;
         default:
             process.stdout.write('Invalid input\n');
-            printCurrentDir()
+            printCurrentDir();
     }
 
 })
