@@ -1,13 +1,15 @@
 import { createWriteStream, createReadStream } from "fs";
 import { pipeline } from 'stream';
-import { join, parse } from "path";
+import { isAbsolute, join, parse } from "path";
 
 export const copyFile = async (toReadPath,toWritePath) => {
-    const readPath = join( process.cwd(), toReadPath );
-    const writePath = join( toWritePath, parse(toReadPath).base );
 
-    const readStream = createReadStream(readPath);
-    const writeStream = createWriteStream(writePath);
+    if (!isAbsolute(toReadPath)) toReadPath = join(process.cwd(), toReadPath);
+    toWritePath = join( toWritePath, parse(toReadPath).base) ;
+
+
+    const readStream = createReadStream(toReadPath);
+    const writeStream = createWriteStream(toWritePath);
 
     await pipeline (
         readStream,
