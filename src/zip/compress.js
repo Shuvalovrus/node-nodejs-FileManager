@@ -1,21 +1,21 @@
 import { createReadStream, createWriteStream } from "fs";
 import { createBrotliCompress } from 'zlib'
-import {join, parse, dirname, isAbsolute} from "path";
+import { join, parse, dirname, isAbsolute } from "path";
 import { pipeline } from "stream";
 
 export const compressFile = async (toReadPath, toWritePath) => {
 
+
     const readPath = !isAbsolute( toReadPath ) ? join(process.cwd(), toReadPath) : toReadPath
 
-    const writePath = toWritePath === toReadPath ?
-
-        join( process.cwd(), dirname(toWritePath) , parse(toReadPath).base + '.gz') :
-        join( process.cwd(), toWritePath , parse(toReadPath).base + '.gz');
+    let writePath = !isAbsolute( toWritePath ) ? join(process.cwd(), toWritePath) : toWritePath
 
 
+    writePath = readPath === writePath ?
 
-    console.log(readPath)
-    console.log(writePath)
+        join( dirname(toWritePath) , parse(toReadPath).base + '.gz') :
+        join( toWritePath , parse(toReadPath).base + '.gz');
+
 
     const readStream = createReadStream( readPath );
     const writeStream = createWriteStream( writePath );
