@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-filemanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shuvalovrus/node-nodejs-FileManager.git"
+  },
+  "author": "Shuvalov Konstantin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shuvalovrus/node-nodejs-FileManager/issues"
+  },
+  "homepage": "https://github.com/Shuvalovrus/node-nodejs-FileManager#readme"
+}
