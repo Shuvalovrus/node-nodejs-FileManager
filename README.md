@@ -8,7 +8,7 @@ The file manager can do the following:
 - Get information about the operating system of the host machine
 - Perform hash calculations
 - Compress and decompress files
-###How to rum 
+### How to rum 
 ```bash
 npm run start -- --username=your_username
 ```
