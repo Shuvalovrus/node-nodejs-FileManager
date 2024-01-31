@@ -6,7 +6,7 @@ export const getUserName = () => {
 
         const name = item.split('=').pop();
 
-        if (item.startsWith('--username')) result = name === '' ? result : name;
+        if (item.startsWith('--username')) result = name ? result : name;
 
     })
 
